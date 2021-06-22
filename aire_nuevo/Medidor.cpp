@@ -61,18 +61,15 @@ void Medidor::presentarMedidor() {
   Serial.print("AireNuevo UNAHUR \n"); 
   Serial.print("MEDIDOR de CO2 \n");  
   display.clear();
-  scrollAireNuevo();
-  logoUNAHUR();    
+  scrollAireNuevo();   
   displayPrint(0, 1, "MEDIDOR de CO2");       
   delay(5000);
 }
 
 void Medidor::sensarCO2() {
-  display.clear();
-  displayPrint(0, 0, "Aire Nuevo");
   while(sensor.getPPM() >= 1200) {  
-    alarmaCO2(1, 250);                             
     imprimirPantalla(sensor.getPPM(), sensor.getTemperature());
+    alarmaCO2(1, 250);                             
   }
   int co2ppm = sensor.getPPM();
   int temp = sensor.getTemperature();
@@ -106,6 +103,7 @@ void Medidor::imprimirTemp(int temp) {
   displayPrint(0, 1, "Temp: " + String(temp) + "* C"); 
 }
 void Medidor::imprimirPantalla(int co2ppm, int temp) {
+  display.clear();
   imprimirCO2(co2ppm);
   imprimirTemp(temp);
   logoUNAHUR(); 
