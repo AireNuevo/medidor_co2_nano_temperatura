@@ -14,7 +14,7 @@ Medidor::Medidor(void) {
   ledB_pin = 2;
   buzzer_pin = 7;
   pulsador_pin = 8;
-  numero_de_serie = "0000"; 
+  numero_de_serie = "0356"; 
 }
 
 void Medidor::iniciar() {
@@ -61,7 +61,9 @@ void Medidor::presentarMedidor() {
   Serial.print("AireNuevo UNAHUR \n"); 
   Serial.print("MEDIDOR de CO2 \n");  
   display.clear();
-  displayPrint(0, 1, "MEDIDOR de CO2");    
+  displayPrint(0, 0, "Aire Nuevo");
+  displayPrint(0, 1, "Medidor de CO2");    
+  delay(500);
   scrollAireNuevo();      
   delay(5000);
 }
