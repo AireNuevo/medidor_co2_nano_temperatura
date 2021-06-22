@@ -61,8 +61,8 @@ void Medidor::presentarMedidor() {
   Serial.print("AireNuevo UNAHUR \n"); 
   Serial.print("MEDIDOR de CO2 \n");  
   display.clear();
-  scrollAireNuevo();   
-  displayPrint(0, 1, "MEDIDOR de CO2");       
+  displayPrint(0, 1, "MEDIDOR de CO2");    
+  scrollAireNuevo();      
   delay(5000);
 }
 
@@ -86,7 +86,7 @@ void Medidor::sensarCO2() {
   else if(co2ppm < 600) {
     rgb('g');
   }
-  delay(5000);  
+  delay(10000);  
 }
 
 void Medidor::displayPrint(int posicion, int linea, String texto) {
